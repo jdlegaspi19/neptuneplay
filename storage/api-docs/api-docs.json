@@ -1,0 +1,2759 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "NeptunePlay Integration API",
+        "description": "Proxy endpoints for NeptunePlay integration and Seamless Wallet callbacks",
+        "version": "2.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8000",
+            "description": "Local Development"
+        }
+    ],
+    "paths": {
+        "/api/data/players": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all players",
+                "operationId": "53296fcaf02948d17af425a5df0bbe18",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Players list"
+                    }
+                }
+            }
+        },
+        "/api/data/transactions": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all transactions",
+                "operationId": "4e1fa7c73f2728b5dc5d77d159581471",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "game_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "round_id",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Transactions list"
+                    }
+                }
+            }
+        },
+        "/api/data/vendors": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all vendors",
+                "operationId": "1ad1207168b838fc43a8ad121bd37a3e",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "1=Live Casino, 2=Slot, 3=Mini-game",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Vendors list"
+                    }
+                }
+            }
+        },
+        "/api/data/games": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all games",
+                "operationId": "809b865fcfe1162f175aae8069edc336",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "vendor_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "game_name",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Games list"
+                    }
+                }
+            }
+        },
+        "/api/data/betting-histories": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all betting histories",
+                "operationId": "ffbe5534b48ab103ad51d096221da436",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "status",
+                        "in": "query",
+                        "description": "0=Unfinished, 1=Finished, 2=Canceled",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Betting histories list"
+                    }
+                }
+            }
+        },
+        "/api/data/user-balance-logs": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all user balance logs",
+                "operationId": "4cecf757f09f9bec6c7d7052f77d93ab",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "type",
+                        "in": "query",
+                        "description": "1=Deposit, 2=Withdraw",
+                        "required": false,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User balance logs list"
+                    }
+                }
+            }
+        },
+        "/api/data/call-histories": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all call histories",
+                "operationId": "510efc91951cf1f2f534460a0232676d",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Call histories list"
+                    }
+                }
+            }
+        },
+        "/api/data/agent-tokens": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all agent tokens",
+                "operationId": "5856ee4e9e018d3bb3092fa726ca2048",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Agent tokens list"
+                    }
+                }
+            }
+        },
+        "/api/data/user-rtps": {
+            "get": {
+                "tags": [
+                    "Data"
+                ],
+                "summary": "List all user RTPs",
+                "operationId": "c41e3150c6b4d1dd5fd225d535d195f3",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "vendor_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "User RTPs list"
+                    }
+                }
+            }
+        },
+        "/api/captcha": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Generate captcha code for registration",
+                "operationId": "8ab2fbf508974b01128654b193ffbf1b",
+                "responses": {
+                    "200": {
+                        "description": "Captcha generated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "captcha_key": {
+                                            "type": "string"
+                                        },
+                                        "captcha_code": {
+                                            "type": "string",
+                                            "example": "42207"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Register a new user",
+                "description": "Creates a local user account, registers on OroPlay, and creates a player record.",
+                "operationId": "f9ddb48d31411767b13157de000a7836",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "email",
+                                    "password",
+                                    "password_confirmation",
+                                    "captcha_key",
+                                    "captcha_code"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "player1"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "example": "player1@example.com"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "secret123"
+                                    },
+                                    "password_confirmation": {
+                                        "type": "string",
+                                        "example": "secret123"
+                                    },
+                                    "captcha_key": {
+                                        "type": "string",
+                                        "example": "captcha_abc123"
+                                    },
+                                    "captcha_code": {
+                                        "type": "string",
+                                        "example": "42207"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Registration successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Registration successful"
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "user_code": {
+                                                    "type": "string"
+                                                },
+                                                "username": {
+                                                    "type": "string"
+                                                },
+                                                "email": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error"
+                    }
+                }
+            }
+        },
+        "/api/agent/balance": {
+            "get": {
+                "tags": [
+                    "Agent"
+                ],
+                "summary": "Get agent balance",
+                "operationId": "2060d961dc4c5c2314177ae07f1501e8",
+                "responses": {
+                    "200": {
+                        "description": "Agent balance retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 10000
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/auth/createtoken": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Create authentication token",
+                "description": "Authenticate user with username and password, then create OroPlay token",
+                "operationId": "cbded1bbae58b1167805f27c9418bb35",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "username",
+                                    "password"
+                                ],
+                                "properties": {
+                                    "username": {
+                                        "type": "string",
+                                        "example": "player1"
+                                    },
+                                    "password": {
+                                        "type": "string",
+                                        "example": "secret123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Token created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "token": {
+                                            "type": "string",
+                                            "example": "eyJhbGciOiJIUzI1NiIs..."
+                                        },
+                                        "expiration": {
+                                            "type": "integer",
+                                            "example": 1712577600
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Invalid credentials"
+                    }
+                }
+            }
+        },
+        "/api/betting/history/by-id": {
+            "post": {
+                "tags": [
+                    "Betting"
+                ],
+                "summary": "Get betting history by ID",
+                "operationId": "f32ed53683888787fef038614c4ac91a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 12345
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Betting history retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "userCode": {
+                                                    "type": "string"
+                                                },
+                                                "roundId": {
+                                                    "type": "string"
+                                                },
+                                                "gameCode": {
+                                                    "type": "string"
+                                                },
+                                                "gameName": {
+                                                    "type": "string"
+                                                },
+                                                "vendorCode": {
+                                                    "type": "string"
+                                                },
+                                                "betAmount": {
+                                                    "type": "number"
+                                                },
+                                                "winAmount": {
+                                                    "type": "number"
+                                                },
+                                                "beforeBalance": {
+                                                    "type": "number"
+                                                },
+                                                "afterBalance": {
+                                                    "type": "number"
+                                                },
+                                                "status": {
+                                                    "description": "0=Unfinished, 1=Finished, 2=Canceled",
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/betting/history/by-date-v2": {
+            "post": {
+                "tags": [
+                    "Betting"
+                ],
+                "summary": "Get betting history by date (V2)",
+                "operationId": "3ae4773053fb2636c38d6e00271eec48",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "startDate",
+                                    "limit"
+                                ],
+                                "properties": {
+                                    "startDate": {
+                                        "type": "string",
+                                        "example": "2026-04-01"
+                                    },
+                                    "limit": {
+                                        "type": "integer",
+                                        "example": 100,
+                                        "maximum": 5000
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Betting history retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "properties": {
+                                                "nextStartDate": {
+                                                    "type": "string"
+                                                },
+                                                "limit": {
+                                                    "type": "integer"
+                                                },
+                                                "histories": {
+                                                    "type": "array",
+                                                    "items": {
+                                                        "type": "object"
+                                                    }
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/betting/history/detail": {
+            "post": {
+                "tags": [
+                    "Betting"
+                ],
+                "summary": "Get betting detail page URL",
+                "operationId": "f24e16c4a969771f9f6d744501ae8487",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "id"
+                                ],
+                                "properties": {
+                                    "id": {
+                                        "type": "integer",
+                                        "example": 12345
+                                    },
+                                    "language": {
+                                        "type": "string",
+                                        "example": "en",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Betting detail URL retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "https://detail.example.com/bet/12345"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/call/active-users": {
+            "get": {
+                "tags": [
+                    "Call"
+                ],
+                "summary": "Get list of active users currently playing",
+                "operationId": "5567e57d9f63d14606de0d3d37d3da93",
+                "responses": {
+                    "200": {
+                        "description": "Active users list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "vendorCode": {
+                                                        "type": "string"
+                                                    },
+                                                    "vendorName": {
+                                                        "type": "string"
+                                                    },
+                                                    "userCode": {
+                                                        "type": "string"
+                                                    },
+                                                    "gameCode": {
+                                                        "type": "string"
+                                                    },
+                                                    "gameName": {
+                                                        "type": "string"
+                                                    },
+                                                    "connectDateTime": {
+                                                        "type": "integer"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/call/send": {
+            "post": {
+                "tags": [
+                    "Call"
+                ],
+                "summary": "Send a call to an active user",
+                "operationId": "2260b07211e60fd32aca6761be822675",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "gameCode",
+                                    "userCode",
+                                    "amount",
+                                    "type"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "gameCode": {
+                                        "type": "string",
+                                        "example": "fortune-tiger"
+                                    },
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "amount": {
+                                        "type": "number",
+                                        "example": 100
+                                    },
+                                    "type": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Call sent successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "integer",
+                                            "example": 456
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/call/cancel": {
+            "post": {
+                "tags": [
+                    "Call"
+                ],
+                "summary": "Cancel a call",
+                "operationId": "3cf5143cc031c345d63419f78c7428d9",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "gameCode",
+                                    "userCode",
+                                    "callId"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "gameCode": {
+                                        "type": "string",
+                                        "example": "fortune-tiger"
+                                    },
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "callId": {
+                                        "type": "integer",
+                                        "example": 456
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Call cancelled",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/call/histories": {
+            "post": {
+                "tags": [
+                    "Call"
+                ],
+                "summary": "Get call histories",
+                "operationId": "a737b28474499f5bf404b0d1c44a3a8c",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "pageIndex",
+                                    "pageSize"
+                                ],
+                                "properties": {
+                                    "pageIndex": {
+                                        "type": "integer",
+                                        "example": 0
+                                    },
+                                    "pageSize": {
+                                        "type": "integer",
+                                        "example": 20,
+                                        "maximum": 100
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Call histories retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "callId": {
+                                                        "type": "integer"
+                                                    },
+                                                    "userCode": {
+                                                        "type": "string"
+                                                    },
+                                                    "vendorCode": {
+                                                        "type": "string"
+                                                    },
+                                                    "gameCode": {
+                                                        "type": "string"
+                                                    },
+                                                    "gameName": {
+                                                        "type": "string"
+                                                    },
+                                                    "typeName": {
+                                                        "type": "string"
+                                                    },
+                                                    "statusName": {
+                                                        "type": "string"
+                                                    },
+                                                    "callAmount": {
+                                                        "type": "number"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/diagnostic/test-neptuneplay-auth": {
+            "get": {
+                "tags": [
+                    "Diagnostic"
+                ],
+                "summary": "Test NeptunePlay API Authentication",
+                "description": "Tests 5 different authentication methods to find which one works with NeptunePlay API",
+                "operationId": "f35fe7aec690d0c03c69c323494fedd5",
+                "responses": {
+                    "200": {
+                        "description": "Diagnostic test results",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Diagnostic tests completed. Check logs for results."
+                                        },
+                                        "results": {
+                                            "properties": {
+                                                "test1_standard_json": {
+                                                    "type": "object"
+                                                },
+                                                "test2_with_accept": {
+                                                    "type": "object"
+                                                },
+                                                "test3_bearer_token": {
+                                                    "type": "object"
+                                                },
+                                                "test4_form_encoded": {
+                                                    "type": "object"
+                                                },
+                                                "test5_get_request": {
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/games/list": {
+            "post": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "Get game list from a vendor (POST)",
+                "operationId": "ce5fbaed84f8e29105327f8e47bde758",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "language": {
+                                        "type": "string",
+                                        "example": "en"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Game list retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "array",
+                                            "items": {
+                                                "type": "object"
+                                            }
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    },
+                    "503": {
+                        "description": "Vendor or game under maintenance"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/game/detail": {
+            "post": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "Get game detail",
+                "operationId": "439a7961cb785fee5e448cfc3519fa88",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "gameCode"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "gameCode": {
+                                        "type": "string",
+                                        "example": "fortune-tiger"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Game detail retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "object"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/game/launch-url": {
+            "post": {
+                "tags": [
+                    "Games"
+                ],
+                "summary": "Get game launch URL",
+                "operationId": "82f0a95317eab9a9ac8767582a19ff42",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "gameCode",
+                                    "userCode",
+                                    "language"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "gameCode": {
+                                        "type": "string",
+                                        "example": "fortune-tiger"
+                                    },
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "language": {
+                                        "type": "string",
+                                        "example": "en"
+                                    },
+                                    "lobbyUrl": {
+                                        "type": "string",
+                                        "example": "https://example.com/lobby",
+                                        "nullable": true
+                                    },
+                                    "theme": {
+                                        "type": "integer",
+                                        "example": 1,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Launch URL retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "https://game.example.com/launch?token=..."
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/game/user/set-rtp": {
+            "post": {
+                "tags": [
+                    "RTP"
+                ],
+                "summary": "Set user RTP for a vendor",
+                "operationId": "704c8adf0eb11687390e1fcdb9773ef1",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "userCode",
+                                    "rtp"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "rtp": {
+                                        "type": "integer",
+                                        "example": 85,
+                                        "maximum": 99,
+                                        "minimum": 30
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "RTP set successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/game/user/get-rtp": {
+            "post": {
+                "tags": [
+                    "RTP"
+                ],
+                "summary": "Get user RTP for a vendor",
+                "operationId": "c31e5ce96e3edb1907ae89808f45ba91",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "userCode"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User RTP retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "integer",
+                                            "example": 85
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/game/users/reset-rtp": {
+            "post": {
+                "tags": [
+                    "RTP"
+                ],
+                "summary": "Reset RTP for all users of a vendor",
+                "operationId": "c9d176ed6cbad9d9ad4cb0e841da0464",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "rtp"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "rtp": {
+                                        "type": "integer",
+                                        "example": 85,
+                                        "maximum": 99,
+                                        "minimum": 30
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "RTP reset for all users",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "integer",
+                                            "example": 85
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/game/users/batch-rtp": {
+            "post": {
+                "tags": [
+                    "RTP"
+                ],
+                "summary": "Batch set RTP for multiple users",
+                "operationId": "d52b3818f07e8a6b0cfee7c431986e05",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vendorCode",
+                                    "data"
+                                ],
+                                "properties": {
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "data": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "userCode": {
+                                                    "type": "string",
+                                                    "example": "user123"
+                                                },
+                                                "rtp": {
+                                                    "type": "integer",
+                                                    "example": 85
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Batch RTP set successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/status": {
+            "get": {
+                "tags": [
+                    "Status"
+                ],
+                "summary": "Check API status",
+                "operationId": "7cddbeb0b76ad9af1ceb55bd55ef9bb3",
+                "responses": {
+                    "200": {
+                        "description": "API is running",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "success"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/users/list": {
+            "get": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get list of all users",
+                "operationId": "a49409a1ac2e7ca3d75806ed821cdd97",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 1
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "default": 15
+                        }
+                    },
+                    {
+                        "name": "user_code",
+                        "in": "query",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Users list retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "current_page": {
+                                            "type": "integer",
+                                            "example": 1
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "id": {
+                                                        "type": "integer"
+                                                    },
+                                                    "user_code": {
+                                                        "type": "string"
+                                                    },
+                                                    "balance": {
+                                                        "type": "number"
+                                                    },
+                                                    "currency": {
+                                                        "type": "string"
+                                                    },
+                                                    "is_active": {
+                                                        "type": "boolean"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "total": {
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user/create": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Create a new user (Transfer API)",
+                "operationId": "2baac2c859285bcf9d6c28812b335e7f",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User created",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/balance": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get user balance (Transfer API)",
+                "operationId": "5f73d796935933bbccf1e43d994781a7",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User balance retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 1000
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/deposit": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Deposit to user balance (Transfer API)",
+                "operationId": "ef313a63b285138d868f8aa954d02f6b",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode",
+                                    "balance"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "balance": {
+                                        "type": "number",
+                                        "example": 500
+                                    },
+                                    "orderNo": {
+                                        "type": "string",
+                                        "example": "ORD-001",
+                                        "nullable": true
+                                    },
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Deposit successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 1500
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/withdraw": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Withdraw from user balance (Transfer API)",
+                "operationId": "2388d24a34a14316ea1c5f8006da5cb3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode",
+                                    "balance"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "balance": {
+                                        "type": "number",
+                                        "example": 200
+                                    },
+                                    "orderNo": {
+                                        "type": "string",
+                                        "example": "ORD-002",
+                                        "nullable": true
+                                    },
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Withdrawal successful",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 800
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/withdraw-all": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Withdraw all user balance (Transfer API)",
+                "operationId": "611c1e3560c4d0dab962c6cdc7fa643a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "All balance withdrawn",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 1000
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/user/balance-history": {
+            "post": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Get user balance history by order number",
+                "operationId": "b58e0495cb4c38b5e1a4d7a1799aa610",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "orderNo"
+                                ],
+                                "properties": {
+                                    "orderNo": {
+                                        "type": "string",
+                                        "example": "ORD-001"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Balance history retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "userCode": {
+                                                    "type": "string"
+                                                },
+                                                "amount": {
+                                                    "type": "number"
+                                                },
+                                                "type": {
+                                                    "description": "1=deposit, 2=withdraw",
+                                                    "type": "integer"
+                                                },
+                                                "agentBeforeBalance": {
+                                                    "type": "number"
+                                                },
+                                                "userBeforeBalance": {
+                                                    "type": "number"
+                                                }
+                                            },
+                                            "type": "object"
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vendors/list": {
+            "get": {
+                "tags": [
+                    "Vendors"
+                ],
+                "summary": "Get list of game vendors",
+                "operationId": "41f8097e33834be0a51d378cb4362f9c",
+                "responses": {
+                    "200": {
+                        "description": "Vendor list retrieved",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "array",
+                                            "items": {
+                                                "properties": {
+                                                    "vendorCode": {
+                                                        "type": "string",
+                                                        "example": "PGS"
+                                                    },
+                                                    "type": {
+                                                        "type": "integer",
+                                                        "example": 2
+                                                    },
+                                                    "name": {
+                                                        "type": "string",
+                                                        "example": "PG Soft"
+                                                    },
+                                                    "url": {
+                                                        "type": "string",
+                                                        "example": "https://example.com"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            }
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/wallet/balance": {
+            "post": {
+                "tags": [
+                    "Seamless Wallet"
+                ],
+                "summary": "Get player balance (Seamless Wallet callback)",
+                "operationId": "4cdf8f435fa521c0e0567cdd45ea4bd0",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Player balance returned",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 1000
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/wallet/transaction": {
+            "post": {
+                "tags": [
+                    "Seamless Wallet"
+                ],
+                "summary": "Process a game transaction (Seamless Wallet callback)",
+                "operationId": "02186f8c777fab17d48d9abd1185758a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode",
+                                    "vendorCode",
+                                    "gameCode",
+                                    "historyId",
+                                    "roundId",
+                                    "gameType",
+                                    "transactionCode",
+                                    "isFinished",
+                                    "isCanceled",
+                                    "amount"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "vendorCode": {
+                                        "type": "string",
+                                        "example": "PGS"
+                                    },
+                                    "gameCode": {
+                                        "type": "string",
+                                        "example": "fortune-tiger"
+                                    },
+                                    "historyId": {
+                                        "type": "integer",
+                                        "example": 12345
+                                    },
+                                    "roundId": {
+                                        "type": "string",
+                                        "example": "round-abc-123"
+                                    },
+                                    "gameType": {
+                                        "description": "1=Casino, 2=Slot, 3=Other, 4=Fishing",
+                                        "type": "integer",
+                                        "example": 2
+                                    },
+                                    "transactionCode": {
+                                        "type": "string",
+                                        "example": "txn-unique-001"
+                                    },
+                                    "isFinished": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "isCanceled": {
+                                        "type": "boolean",
+                                        "example": false
+                                    },
+                                    "amount": {
+                                        "description": "Negative=bet/debit, Positive=win/credit",
+                                        "type": "number",
+                                        "example": -10
+                                    },
+                                    "detail": {
+                                        "type": "string",
+                                        "example": "Bet on slot",
+                                        "nullable": true
+                                    },
+                                    "createdAt": {
+                                        "type": "string",
+                                        "example": "2026-04-08T12:00:00Z",
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Transaction processed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 990
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/wallet/batch-transactions": {
+            "post": {
+                "tags": [
+                    "Seamless Wallet"
+                ],
+                "summary": "Process batch transactions (Seamless Wallet callback)",
+                "operationId": "2a81a84658d7dd2d6adf62290ce138bf",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "userCode",
+                                    "transactions"
+                                ],
+                                "properties": {
+                                    "userCode": {
+                                        "type": "string",
+                                        "example": "user123"
+                                    },
+                                    "transactions": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "vendorCode": {
+                                                    "type": "string"
+                                                },
+                                                "gameCode": {
+                                                    "type": "string"
+                                                },
+                                                "historyId": {
+                                                    "type": "integer"
+                                                },
+                                                "roundId": {
+                                                    "type": "string"
+                                                },
+                                                "gameType": {
+                                                    "type": "integer"
+                                                },
+                                                "transactionCode": {
+                                                    "type": "string"
+                                                },
+                                                "isFinished": {
+                                                    "type": "boolean"
+                                                },
+                                                "isCanceled": {
+                                                    "type": "boolean"
+                                                },
+                                                "amount": {
+                                                    "type": "number"
+                                                },
+                                                "detail": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                },
+                                                "createdAt": {
+                                                    "type": "string",
+                                                    "nullable": true
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Batch transactions processed",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "success": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "number",
+                                            "example": 950
+                                        },
+                                        "errorCode": {
+                                            "type": "integer",
+                                            "example": 0
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "basicAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Bearer token obtained from /api/v2/auth/createtoken",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            },
+            "basicAuth": {
+                "type": "http",
+                "description": "Basic Auth for Seamless Wallet callbacks",
+                "scheme": "basic"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Data",
+            "description": "Data"
+        },
+        {
+            "name": "Auth",
+            "description": "Auth"
+        },
+        {
+            "name": "Agent",
+            "description": "Agent"
+        },
+        {
+            "name": "Betting",
+            "description": "Betting"
+        },
+        {
+            "name": "Call",
+            "description": "Call"
+        },
+        {
+            "name": "Diagnostic",
+            "description": "Diagnostic"
+        },
+        {
+            "name": "Games",
+            "description": "Games"
+        },
+        {
+            "name": "RTP",
+            "description": "RTP"
+        },
+        {
+            "name": "Status",
+            "description": "Status"
+        },
+        {
+            "name": "User",
+            "description": "User"
+        },
+        {
+            "name": "Vendors",
+            "description": "Vendors"
+        },
+        {
+            "name": "Seamless Wallet",
+            "description": "Seamless Wallet"
+        }
+    ]
+}
