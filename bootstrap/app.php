@@ -20,8 +20,10 @@ return Application::configure(basePath: dirname(__DIR__))
             'force.json' => \App\Http\Middleware\ForceJsonResponse::class,
         ]);
 
+        // Apply CORS middleware globally BEFORE everything else
+        $middleware->prepend(\App\Http\Middleware\CorsPreflight::class);
+
         $middleware->api(prepend: [
-            \App\Http\Middleware\CorsPreflight::class,
             \App\Http\Middleware\ForceJsonResponse::class,
         ]);
     })

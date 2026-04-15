@@ -35,14 +35,31 @@ class CorsPreflight
         // Get response from next middleware
         $response = $next($request);
 
-        // Add CORS headers to actual request
+        // IMPORTANT: Remove any wildcard CORS headers that might have been set
+        if ($response->headers->has('Access-Control-Allow-Origin')) {
+            $existingOrigin = $response->headers->get('Access-Control-Allow-Origin');
+            if ($existingOrigin === '*') {
+                // Remove the problematic wildcard
+                $response->headers->remove('Access-Control-Allow-Origin');
+                $response->headers->remove('Access-Control-Allow-Credentials');
+                $response->headers->remove('Access-Control-Allow-Methods');
+                $response->headers->remove('Access-Control-Allow-Headers');
+            }
+        }
+
+        // Set proper CORS headers for credentialed requests
         if ($isAllowedOrigin && $origin) {
             $response->headers->set('Access-Control-Allow-Origin', $origin);
             $response->headers->set('Access-Control-Allow-Credentials', 'true');
-            $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS');
-            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With');
+            $response->headers->set('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD');
+            $response->headers->set('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept');
             $response->headers->set('Access-Control-Expose-Headers', 'Content-Length, X-JSON-Response');
             $response->headers->set('Access-Control-Max-Age', '86400');
+        } else {
+            // For disallowed origins, explicitly deny
+            if ($origin) {
+                $response->headers->set('Access-Control-Allow-Origin', 'null');
+            }
         }
 
         return $response;
