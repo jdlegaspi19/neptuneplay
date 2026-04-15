@@ -30,24 +30,21 @@ class NeptunePlayService
             'clientId' => $clientId ?? $this->clientId,
             'clientSecret' => $clientSecret ?? $this->clientSecret,
         ];
-
-Log::info('NeptunePlay API Call', [
+    
+        Log::info('NeptunePlay API Call', [
             'url' => "{$this->baseUrl}/auth/createtoken",
             'payload' => $payload,
+            'server_ip' => gethostbyname(gethostname()), // LOG OUTGOING IP
         ]);
-
-        $response = Http::withHeaders([
-            'Accept' => 'application/json',
-            'User-Agent' => 'NeptunePlay-Laravel-Client/1.0',
-        ])->post("{$this->baseUrl}/auth/createtoken", $payload);
-
-        Log::info('NeptunePlay API Response', [
+    
+        $response = Http::post("{$this->baseUrl}/auth/createtoken", $payload);
+    
+        Log::info('NeptunePlay API Response Full', [
             'status' => $response->status(),
             'headers' => $response->headers(),
             'body' => $response->body(),
-            'json' => $response->json(),
         ]);
-
+    
         return $this->handleResponse($response);
     }
 

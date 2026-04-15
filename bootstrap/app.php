@@ -21,6 +21,7 @@ return Application::configure(basePath: dirname(__DIR__))
         ]);
 
         $middleware->api(prepend: [
+            \App\Http\Middleware\CorsPreflight::class,
             \App\Http\Middleware\ForceJsonResponse::class,
         ]);
     })
