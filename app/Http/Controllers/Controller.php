@@ -9,7 +9,7 @@ use OpenApi\Attributes as OA;
     version: '2.0',
     description: 'Proxy endpoints for NeptunePlay integration and Seamless Wallet callbacks'
 )]
-#[OA\Server(url: 'http://localhost:8000', description: 'Local Development')]
+#[OA\Server(url: "https://gamingsite.beesites.net/neptuneplay-backend", description: "Production API Server")]
 #[OA\SecurityScheme(
     securityScheme: 'bearerAuth',
     type: 'http',
