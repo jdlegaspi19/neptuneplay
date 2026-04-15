@@ -49,6 +49,7 @@ class AuthController extends Controller
     )]
     public function createToken(CreateTokenRequest $request): JsonResponse
     {
+        
         $validated = $request->validated();
 
         // Find user by username
