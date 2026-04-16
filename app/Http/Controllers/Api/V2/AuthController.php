@@ -40,6 +40,7 @@ class AuthController extends Controller
                         new OA\Property(property: 'success', type: 'boolean', example: true),
                         new OA\Property(property: 'token', type: 'string', example: 'eyJhbGciOiJIUzI1NiIs...'),
                         new OA\Property(property: 'expiration', type: 'integer', example: 1712577600),
+                        new OA\Property(property: 'user_code', type: 'string', example: 'USER123'),
                         new OA\Property(property: 'errorCode', type: 'integer', example: 0),
                     ]
                 )
@@ -69,6 +70,9 @@ class AuthController extends Controller
             config('services.neptuneplay.client_id'),
             config('services.neptuneplay.client_secret'),
         );
+
+        // Add user_code to response
+        $result['user_code'] = $user->user_code;
 
         return response()->json($result);
     }
