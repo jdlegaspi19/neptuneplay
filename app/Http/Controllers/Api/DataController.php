@@ -23,8 +23,6 @@ class DataController extends Controller
         summary: 'List all players',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'user_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
         ],
         responses: [
@@ -39,7 +37,8 @@ class DataController extends Controller
             $query->where('user_code', 'like', '%' . $request->input('user_code') . '%');
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
@@ -47,8 +46,6 @@ class DataController extends Controller
         summary: 'List all transactions',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'user_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'vendor_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'game_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
@@ -75,7 +72,8 @@ class DataController extends Controller
             $query->where('round_id', $request->input('round_id'));
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
@@ -83,9 +81,7 @@ class DataController extends Controller
         summary: 'List all vendors',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
-            new OA\Parameter(name: 'type', in: 'query', required: false, schema: new OA\Schema(type: 'integer'), description: '1=Live Casino, 2=Slot, 3=Mini-game'),
+            new OA\Parameter(name: 'type', in: 'query', required: false, schema: new OA\Schema(type: 'integer'), description: '1=Live Casino, 2=Slot, 3=Mini-Game, 4=Fishing-Game, 5=Sports, 6=Board-Game'),
         ],
         responses: [
             new OA\Response(response: 200, description: 'Vendors list'),
@@ -99,7 +95,8 @@ class DataController extends Controller
             $query->where('type', $request->input('type'));
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
@@ -107,8 +104,6 @@ class DataController extends Controller
         summary: 'List all games',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'vendor_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'game_name', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
         ],
@@ -127,7 +122,8 @@ class DataController extends Controller
             $query->where('game_name', 'like', '%' . $request->input('game_name') . '%');
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
@@ -135,8 +131,6 @@ class DataController extends Controller
         summary: 'List all betting histories',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'user_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'vendor_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'status', in: 'query', required: false, schema: new OA\Schema(type: 'integer'), description: '0=Unfinished, 1=Finished, 2=Canceled'),
@@ -159,7 +153,8 @@ class DataController extends Controller
             $query->where('status', $request->input('status'));
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
@@ -167,8 +162,6 @@ class DataController extends Controller
         summary: 'List all user balance logs',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'user_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'type', in: 'query', required: false, schema: new OA\Schema(type: 'integer'), description: '1=Deposit, 2=Withdraw'),
         ],
@@ -187,7 +180,8 @@ class DataController extends Controller
             $query->where('type', $request->input('type'));
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
@@ -195,8 +189,6 @@ class DataController extends Controller
         summary: 'List all call histories',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'user_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'vendor_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
         ],
@@ -215,24 +207,22 @@ class DataController extends Controller
             $query->where('vendor_code', $request->input('vendor_code'));
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 
     #[OA\Get(
         path: '/api/data/agent-tokens',
         summary: 'List all agent tokens',
         tags: ['Data'],
-        parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
-        ],
+        parameters: [],
         responses: [
             new OA\Response(response: 200, description: 'Agent tokens list'),
         ]
     )]
     public function agentTokens(Request $request): JsonResponse
     {
-        return response()->json(AgentToken::orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        return response()->json(AgentToken::orderBy('id', 'desc')->get());
     }
 
     #[OA\Get(
@@ -240,8 +230,6 @@ class DataController extends Controller
         summary: 'List all user RTPs',
         tags: ['Data'],
         parameters: [
-            new OA\Parameter(name: 'page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 1)),
-            new OA\Parameter(name: 'per_page', in: 'query', required: false, schema: new OA\Schema(type: 'integer', default: 15)),
             new OA\Parameter(name: 'user_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
             new OA\Parameter(name: 'vendor_code', in: 'query', required: false, schema: new OA\Schema(type: 'string')),
         ],
@@ -260,6 +248,7 @@ class DataController extends Controller
             $query->where('vendor_code', $request->input('vendor_code'));
         }
 
-        return response()->json($query->orderBy('id', 'desc')->paginate($request->input('per_page', 15)));
+        $query = $query->orderBy('id', 'desc');
+        return response()->json($query->get());
     }
 }

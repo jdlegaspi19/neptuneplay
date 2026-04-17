@@ -21,24 +21,6 @@
                 "operationId": "53296fcaf02948d17af425a5df0bbe18",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
-                    {
                         "name": "user_code",
                         "in": "query",
                         "required": false,
@@ -62,24 +44,6 @@
                 "summary": "List all transactions",
                 "operationId": "4e1fa7c73f2728b5dc5d77d159581471",
                 "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
                     {
                         "name": "user_code",
                         "in": "query",
@@ -129,27 +93,9 @@
                 "operationId": "1ad1207168b838fc43a8ad121bd37a3e",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
-                    {
                         "name": "type",
                         "in": "query",
-                        "description": "1=Live Casino, 2=Slot, 3=Mini-game",
+                        "description": "1=Live Casino, 2=Slot, 3=Mini-Game, 4=Fishing-Game, 5=Sports, 6=Board-Game",
                         "required": false,
                         "schema": {
                             "type": "integer"
@@ -171,24 +117,6 @@
                 "summary": "List all games",
                 "operationId": "809b865fcfe1162f175aae8069edc336",
                 "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
                     {
                         "name": "vendor_code",
                         "in": "query",
@@ -221,24 +149,6 @@
                 "summary": "List all betting histories",
                 "operationId": "ffbe5534b48ab103ad51d096221da436",
                 "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
                     {
                         "name": "user_code",
                         "in": "query",
@@ -281,24 +191,6 @@
                 "operationId": "4cecf757f09f9bec6c7d7052f77d93ab",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
-                    {
                         "name": "user_code",
                         "in": "query",
                         "required": false,
@@ -332,24 +224,6 @@
                 "operationId": "510efc91951cf1f2f534460a0232676d",
                 "parameters": [
                     {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
-                    {
                         "name": "user_code",
                         "in": "query",
                         "required": false,
@@ -380,26 +254,6 @@
                 ],
                 "summary": "List all agent tokens",
                 "operationId": "5856ee4e9e018d3bb3092fa726ca2048",
-                "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    }
-                ],
                 "responses": {
                     "200": {
                         "description": "Agent tokens list"
@@ -415,24 +269,6 @@
                 "summary": "List all user RTPs",
                 "operationId": "c41e3150c6b4d1dd5fd225d535d195f3",
                 "parameters": [
-                    {
-                        "name": "page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 1
-                        }
-                    },
-                    {
-                        "name": "per_page",
-                        "in": "query",
-                        "required": false,
-                        "schema": {
-                            "type": "integer",
-                            "default": 15
-                        }
-                    },
                     {
                         "name": "user_code",
                         "in": "query",
