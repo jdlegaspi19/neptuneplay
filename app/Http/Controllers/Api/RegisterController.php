@@ -20,7 +20,7 @@ class RegisterController extends Controller
         private readonly NeptunePlayService $neptunePlayService,
         private readonly CaptchaService $captchaService,
     ) {}
-
+ 
     #[OA\Get(
         path: '/api/captcha',
         summary: 'Generate captcha code for registration',
@@ -41,10 +41,10 @@ class RegisterController extends Controller
     public function captcha(): JsonResponse
     {
         $captcha = $this->captchaService->generate();
-
+ 
         return response()->json($captcha);
     }
-
+ 
     #[OA\Post(
         path: '/api/register',
         summary: 'Register a new user',
