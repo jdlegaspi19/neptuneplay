@@ -46,7 +46,7 @@ class CorsPreflight
                 $response->headers->remove('Access-Control-Allow-Headers');
             }
         }
-
+ 
         // Set proper CORS headers for credentialed requests
         if ($isAllowedOrigin && $origin) {
             $response->headers->set('Access-Control-Allow-Origin', $origin);
@@ -61,7 +61,7 @@ class CorsPreflight
                 $response->headers->set('Access-Control-Allow-Origin', 'null');
             }
         }
-
+ 
         return $response;
     }
 

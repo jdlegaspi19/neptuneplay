@@ -58,7 +58,7 @@ class DataController extends Controller
     public function transactions(Request $request): JsonResponse
     {
         $query = Transaction::query();
-
+ 
         if ($request->has('user_code')) {
             $query->where('user_code', $request->input('user_code'));
         }
@@ -71,11 +71,11 @@ class DataController extends Controller
         if ($request->has('round_id')) {
             $query->where('round_id', $request->input('round_id'));
         }
-
+ 
         $query = $query->orderBy('id', 'desc');
         return response()->json($query->get());
     }
-
+ 
     #[OA\Get(
         path: '/api/data/vendors',
         summary: 'List all vendors',
